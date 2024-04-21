@@ -1,15 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## REQUIREMENTS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- PHP 8.1
+- Laravel   Framework 10.48.8
+- ReactJS   18.2.0
+- NodeJS    18.16.0
+- NPM       9.5.1
 
-## About Laravel
+## DESCRIPTION
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+In this code challenge task, you are required to create a dynamic data visualization application using Laravel for the backend and React.js for the frontend. The goal of the application is to dynamically fetch data from a MySQL database, visualize it using a line chart, and display it to the front user.
+
+
+### Frontend (React.js):
+    1-Form Component:
+        The frontend includes a form component where users can input parameters such as MySQL host, database name, username, password, and query data.
+        Upon form submission, the data is sent to the Laravel backend for processing.
+
+    2-Line Chart Visualization:
+        Upon receiving data from the backend, the frontend visualizes it using a line chart component from the Recharts library.
+        The line chart is responsive and occupies the full width of the container.
+
+### Setup Instructions:
+    1-Backend Setup:
+        Ensure that Laravel and Composer are installed on your system.
+        Clone the repository and navigate to the project directory.
+        Run composer install to install project dependencies.
+        Configure your .env file with database connection details.
+        Run php artisan migrate to create the required student_results table.
+        Start the Laravel development server using php artisan serve.
+        npm install recharts.
+
+
+    2-Frontend Setup:
+        Ensure that Node.js and npm are installed on your system.
+        Navigate to the resources/js directory.
+        Run npm install to install frontend dependencies.
+        Start the React.js development server using npm run dev.
+
+    3-Accessing the Application:
+        Open your web browser and navigate to http://localhost:8000 to access the application.
+
+
+### Project Structure:
+    1-app/Http/Controllers/GraphController.php: Contains the backend logic for fetching data and rendering views.
+    2-resources/js/components/Graph.jsx: Contains the frontend logic for rendering the form and visualizing data.
+
+### Technologies Used:
+    Backend: Laravel, MySQL
+    Frontend: React.js, Recharts
+    Other Tools: Composer, npm
+
+### Demo Query:
+    SELECT MONTH(SaleDate) AS SaleMonth, 
+       COUNT(SaleID) AS TotalSalesCount, 
+       SUM(Quantity) AS TotalQuantitySold, 
+       AVG(Quantity) AS AverageQuantityPerSale 
+    FROM sales 
+    WHERE YEAR(SaleDate) = YEAR(CURRENT_DATE - INTERVAL 1 YEAR) 
+    GROUP BY MONTH(SaleDate) 
+    ORDER BY MONTH(SaleDate);
+    
+
+Author:
+Meherban Shah
+
+
+## HOW TO SETUP
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
