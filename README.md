@@ -51,6 +51,9 @@ In this code challenge task, you are required to create a dynamic data visualiza
     Other Tools: Composer, npm
 
 ### Demo Query:
+    
+    Demo database attached to the project root named "asf_db1.sql".
+    
     SELECT MONTH(SaleDate) AS SaleMonth, 
        COUNT(SaleID) AS TotalSalesCount, 
        SUM(Quantity) AS TotalQuantitySold, 
